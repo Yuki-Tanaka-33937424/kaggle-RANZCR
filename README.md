@@ -73,15 +73,46 @@ train - トレーニングイメージ
     - TrainDatasetまで書いた。いい復習になっている。<br>
 
 ### 20210224<br>
+- [このNotebook](https://www.kaggle.com/raddar/errors-in-ett-abnormal-labels)を見ると、ETT -Abnormalのうちの一つがラベルが違うらしく、正確にはCVC - Abnormalらしい。EDAを見る限りでもそうっぽい。比較実験したい。<br>
+- [このNotebook]の一番下のコメントで、timmとpytorch.xla_(だったっけ)のバージョンの齟齬の解消法が提案されてた。とりあえず、pytorch-image-modelsを使い続けて、xlaのバージョンを変えることにする。<br>
+- どうやら、annotationを使うには、3stepでtrainingを行う必要があるらしい。<br>
+
 - nb002<br>
   - ver2<br>
     - どうやら画像データのデータセットは自分で作らないといけないらしい。384×384で作ってから学習時に600×600にするのは、学習が早いかららしい。勉強のため、そうした場合と直接600×600に圧縮した場合の比較をしてみたい。恐らく、補完の際に若干崩れるため前者の精度は若干落ちると考えられる。<br>
+    - 書き終わったので一旦quick saveした。<br>
+  - ver3<br>
+    - 公開Notebookとパラメータを同じにして動かした。<br>
+    - ただし、時間短縮のため、foldは0のみにしてある。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: |
+      | 0.9325 | 0.939 | 0.1152 | 0.1556 | <br>
+    - CVはほぼ同じなので、恐らく再現できてる。
+  - ver4<br>
+    - ミスラベリングと議論されているデータを外した。また、全てのepochでモデルをセーブするようにした。<br>
+      
 - nb003(inference_ResNext)<br>
   - ver1<br>
     - 同じくY.NakamaさんのNotebookを写経した。<br>
+    - 書き終わったので一旦quick saveした。<br>
+  - ver2<br>
+    - nb002_ver3の推論をしようとしたが、Internetを切り忘れた。<br>
+  - ver3<br>
+    - これ以降、trainingの方のNotebookに全て情報を書くため、このNotebookは登場させない。<br>
 - nb004<br>
   - ver1<br>
     - 384×384の画像のデータセットを作るためのNotebook。nb002の元のNotebookにあったコメント通りにzipファイルにしてみた。<br>
     - 5GBもあるデータをいちいちローカルに落としてunzipして再びKaggleにあげ直すのは大変なので、Notebookの中でunzipして一つのファイルに入れるまでを行う。<br>
   - ver2<br>
     - unzipまで行った。<br>
+    - データが取り出せない。なぜ。<br>
+  - ver3<br>
+    - 恐らく写真が多すぎるので諦めた。3stepの学習Notebookでは、画像サイズは普通に512だったため、そっちにする。<br>
+- nb005(training_ResNeXt_step1)<br>
+  - [Y,Nakamaさんのstep1]の写経。<br>
+   - ver1<br>
+     - TPUにとても苦戦する。よくわからんけど苦戦する。よくわからんから苦戦するのか。<br>
+     - 一応全てのepochでモデルを保存するようにしておいた。<br>
+     - 間違えてdebugをTrueにしたまま回してしまった。<br>
+   - ver2<br>
+     - debugをFalseに直した。<br>
