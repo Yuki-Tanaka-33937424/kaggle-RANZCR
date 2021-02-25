@@ -141,4 +141,7 @@ train - トレーニングイメージ
     - 公開Notebook通りに戻した。LBは0.965。それはそうだ。<br>
   - ver4<br>
     - vertical flipだけ入れてみた。<br>
+    - LBは0.965だが、表示桁以下は若干上がっている。<br>
+  - ver6(ver5は失敗)<br>
+    - verticalとhorizontalを同時にひっくり返すものも入れた。<br>
     
