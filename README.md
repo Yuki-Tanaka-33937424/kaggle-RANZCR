@@ -125,10 +125,20 @@ train - トレーニングイメージ
   - ver5<br>
     - Augmentationを増やしてみた。LB0.965を出している[このNotebook](https://www.kaggle.com/underwearfitting/single-fold-training-of-resnet200d-lb0-965)や、tawaraさんの[スレッド](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification/discussion/210016)でもAugmentationを増やすと精度が上がっているため、恐らく間違いない。<br>
     - 1epochは最終層以外固定した。本当はこのように複数の変更を同時に行うべきではないが、時間がないので仕方がない。前回のコンペで効いているので入れる。<br>
+    - どちらがより大きい影響を及ぼしているかがわからないが、学習が遅くなってる。もうちょいepochを増やせばCVはまだ上がりそう。このnbの工夫はそのままnb006あたりに生かしたい。<br>
 - nb006(ResNeXt_step2)<br>
   - ver3(ver1, ver2は失敗)<br>
+    - 動かした。<br>
+- nb007(ResNeXt_step3)<br>
+  - ver2(ver1はquick save)<br>
+    - とりあえず写して動かした。<br>
 - nb009(公開Notebook)<br>
   - ver1<br>
     - 公開されている状態から、TTAを8回に増やした。<br>
     - その後に、inferenceの関数内でモデルを5fold分ロードする形にしてみたところ、実行速度がかなり遅くなった。ボトルネックは恐らくモデルを毎回ロードしなければいけないところだと考えられる。loaderがボトルネックだと勝手に思い込んでいたが、実は違うらしい。工夫次第では他のNotebookもさらに早くなるかもしれない。<br>
+    - LBは0.955だった。TTAを無闇に入れてもダメなのか。aucとaccuracyでは勝手が違うので難しい。<br>
+  - ver3(ver2)は失敗<br>
+    - 公開Notebook通りに戻した。LBは0.965。それはそうだ。<br>
+  - ver4<br>
+    - vertical flipだけ入れてみた。<br>
     
