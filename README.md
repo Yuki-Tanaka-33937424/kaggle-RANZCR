@@ -126,6 +126,9 @@ train - トレーニングイメージ
     - Augmentationを増やしてみた。LB0.965を出している[このNotebook](https://www.kaggle.com/underwearfitting/single-fold-training-of-resnet200d-lb0-965)や、tawaraさんの[スレッド](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification/discussion/210016)でもAugmentationを増やすと精度が上がっているため、恐らく間違いない。<br>
     - 1epochは最終層以外固定した。本当はこのように複数の変更を同時に行うべきではないが、時間がないので仕方がない。前回のコンペで効いているので入れる。<br>
     - どちらがより大きい影響を及ぼしているかがわからないが、学習が遅くなってる。もうちょいepochを増やせばCVはまだ上がりそう。このnbの工夫はそのままnb006あたりに生かしたい。<br>
+  - ver6<br>
+    - lossがうまく下がらなかった。**たとえ時間がなくても一気に二つ以上変更を加えてはいけない。これからは守る。**<br>
+    - 
 - nb006(ResNeXt_step2)<br>
   - ver3(ver1, ver2は失敗)<br>
     - 動かした。<br>
@@ -144,4 +147,5 @@ train - トレーニングイメージ
     - LBは0.965だが、表示桁以下は若干上がっている。<br>
   - ver6(ver5は失敗)<br>
     - verticalとhorizontalを同時にひっくり返すものも入れた。<br>
+    - 0.963に下がった。よくわからんなあ...<br>
     
