@@ -122,6 +122,12 @@ train - トレーニングイメージ
   - ver4<br>
     - ミスラベリングの疑いがあった、ETT - Abnormalクラスのデータを一つ外したところ、ETT - Abnormalクラスのaucが0.9336->0.9617と上がったので、恐らく指摘に間違いはない。その他のクラスのaucが若干下がってるのが気になるが、誤差としか考えられない。<br>
     - epoch5, 6を使うようにして、TTAを各5回にしたところ、LBが0.710まで落ちた。これは恐らく、学習の段階でaugmentationがRandomResizedCropとHorizontalFlipしかないことが原因だと思われる。<br>
+    - TTAなどの変更は全て戻してsibmitした。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: |
+      | 0.9308 | 0.941 | 0.1305 | 0.1551 | <br>
+    - train_lossが高いのは、valid_lossが一番低いepochが手前にズレたから。<br>
+    - やはり、ラベリングは間違っていたとみていいと思う。<br>
   - ver5<br>
     - Augmentationを増やしてみた。LB0.965を出している[このNotebook](https://www.kaggle.com/underwearfitting/single-fold-training-of-resnet200d-lb0-965)や、tawaraさんの[スレッド](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification/discussion/210016)でもAugmentationを増やすと精度が上がっているため、恐らく間違いない。<br>
     - 1epochは最終層以外固定した。本当はこのように複数の変更を同時に行うべきではないが、時間がないので仕方がない。前回のコンペで効いているので入れる。<br>
