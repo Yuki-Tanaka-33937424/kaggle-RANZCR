@@ -134,12 +134,27 @@ train - トレーニングイメージ
     - どちらがより大きい影響を及ぼしているかがわからないが、学習が遅くなってる。もうちょいepochを増やせばCVはまだ上がりそう。このnbの工夫はそのままnb006あたりに生かしたい。<br>
   - ver6<br>
     - lossがうまく下がらなかった。**たとえ時間がなくても一気に二つ以上変更を加えてはいけない。これからは守る。**<br>
+  - ver8(ver7は失敗)<br>
+    - augmentationを多めに入れた。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: |
+      | 0.9332 | 0.936 | 0.1312 | 0.1530 | <br>
+    - CVはよくなってるけどLBが悪くなっている。<br>
+  - ver9<br>
+    - ver4から、1epochは出力層以外を凍結するように変更した。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: |
+      | 0.9292 | 0.936 | 0.1189 | 0.1563 | <br>
+    - どちらも悪化してしまった。Cassavaコンペで効いたことがこっちでも一様に効くわけではないらしい。<br>
 - nb006(ResNeXt_step2)<br>
   - ver3(ver1, ver2は失敗)<br>
     - 動かした。<br>
 - nb007(ResNeXt_step3)<br>
-  - ver2(ver1はquick save)<br>
+  - ver5(ver1はquick save, ver2, ver3, ver4は失敗)<br>
     - とりあえず写して動かした。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: |
+      | 0.9530 | 0.951 | 0.1107 | 0.0.1359 | <br>
 - nb009(公開Notebook)<br>
   - ver1<br>
     - 公開されている状態から、TTAを8回に増やした。<br>
@@ -153,8 +168,27 @@ train - トレーニングイメージ
   - ver6(ver5は失敗)<br>
     - verticalとhorizontalを同時にひっくり返すものも入れた。<br>
     - 0.963に下がった。よくわからんなあ...<br>
+  - ver8(ver7は失敗)<br>
+    - ver4から、RandomResizedCropを入れた。<br>
+    - LBは0.964だった。<br>
+  - ver9<br> 
+    - ver8から、ShiftScaleRotateを入れた。<br>
+    - LBは0.964だった。この取り組み、意味あるのかな...<br>
     
 ### 20210226<br>
 - nb002<br>
-  - ver8(ver8は失敗)<br>
+  - ver9(ver8は失敗)<br>
     - ver4から、augmentationを追加した。nb005のaugmentationにverticalflipを追加したもの。<br>
+
+### 20210227<br>
+- 予測確率を1.1乗したりすれば、aucがよくなったりするのかと思っていたが、aucに関係するのは予測確率の順序だけであるため、全く意味がなかった。aucを大きく誤解していた。反省。ということは、最初の方にやった、trainデータの平均で各列を埋めたサブミットはaucが0.5になって当然となる。(閾値を変えても、FPR=TPR=0とFPR=TPR=1にしかならないため、左下と右上の角を結ぶことになるため当然面積は0.5になる。)<br>
+- nb009<br>
+  - ver8(ver7は失敗)<br>
+    - ver4から、RandomResizedCropを入れた。<br>
+    - LBは0.964だった。<br>
+  - ver9<br> 
+    - ver8から、ShiftScaleRotateを入れた。<br>
+    - LBは0.964だった。この取り組み、意味あるのかな...<br>
+- nb010(training_ViT)<br>
+  - ver1<br>
+  - Cassavaコンペ3位のモデルを参考に、672x672の画像を9分割して224x224のViTにそれぞれ突っ込んで、attentionでweight averagingをするモデルを作ってみた。<br>
