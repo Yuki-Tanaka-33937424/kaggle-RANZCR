@@ -221,6 +221,8 @@ train - トレーニングイメージ
     - valid_lossが一番低いのがepoch2なのが気になる。学習率を落とした方がいいっぽい。<br>
 
 ### 20210303<br>
+- annotationが間違ってる画像があるという意見がある。[このディスカッション](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification/discussion/210064)に書かれていた。外した方がスコアが高い可能性もなくはない。<br>
+- CVCのスコアはこのコンペの一つに鍵になっていると思う。ただ、[このディスカッション](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification/discussion/216219)によると、CVCのAUCスコアが低いのはモデルが苦戦しているからではなく、CVCがほぼ全てのデータに入っているからだそう。[このディスカッション](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification/discussion/207602)に外部データがある。使えるかも。<br>
 - nb006<br>
   - ver6 ~ ver8<br>
     - 学習率を変える実験をしたので色々書く(ver5から載せる)<br>
