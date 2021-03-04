@@ -238,6 +238,18 @@ train - トレーニングイメージ
     - 学習率を落とすとepoch1のCVが高くなるが、それはもともとの重みが反映されているだけ。ここでの目的は親モデルの重みに近づけることであるため、train_lossもしっかり下がっているやつを選びたい。<br>
     - 2e-5, 1e-5に関しては上記の理由でepoch5のモデルを取っている。<br>
     - 以上から、ver10のモデルを採用する。<br>
+    - ちなみに、この時点でsubするとLBは0.953だった。<br>
 - nb007<br> 
-  - ver7(ver6は失敗)<br>
+  - ver9(ver6, ver7, ver8は失敗)<br>
     - nb006_ver10_epoch5のモデルを使う。ハイパラは全て同じ。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: |
+      | 0.9582 | 0.954 | 0.0884 | 0.1318 | <br>
+    - 学習率が大きく、完全に過学習している。<br>
+    - 公開Notebookではvalid_lossが一番低いモデルが使われていたが、今回はCVが一番いいモデルを使った。[このディスカッション](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification/discussion/222845)を見ると意見が割れているが、lossが小さい方を選ぶのは多数派で、AUCが良い方だけを見るとoverfitするらしい。今回は学習率が高すぎるので、次回以降に両方試してみる。<br>
+
+### 20210304<br>
+- 今実験しているサイクルに使っているモデルは、公開Notebookからそのまま取ってきただけのモデルであるため、今のfoldの切り方と同じ切り方で訓練した保証がなく、リークしている可能性がある。[このdataset](https://www.kaggle.com/ammarali32/startingpointschestx)で提供されている重みを使って、サイクル一周目からfold1を使ってモデルを作ろうと思う。そうしておいた方が後々全foldでモデルを作るときに手間も減る。
+- nb005<br>
+  - ver6<br>
+    - fold1にした。また、重みの初期値を[この公開Dataset](https://www.kaggle.com/ammarali32/startingpointschestx/code)に変えた。<br>
