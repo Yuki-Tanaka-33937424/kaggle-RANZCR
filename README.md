@@ -253,3 +253,7 @@ train - トレーニングイメージ
 - nb005<br>
   - ver6<br>
     - fold1にした。また、重みの初期値を[この公開Dataset](https://www.kaggle.com/ammarali32/startingpointschestx/code)に変えた。<br>
+    - 結果があまりよくなかった。そもそも、stage1での重みは変えなくて大丈夫だった。<br>
+  - ver7<br>
+    - 重みを戻した。<br>
+    - ほぼCVが1まで上がり切ったので、こっちを採用する。<br>
