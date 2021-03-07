@@ -370,4 +370,8 @@ train - トレーニングイメージ
     - | CV | train_loss | valid_loss |
       | :---: | :---: | :---: |
       | 0.9316 | 1.6560 | 0.1679 | <br>
+  - ver23(ver22はquick save)<br>
+    - これもquick save。ひらさんにDANetのリベンジをしてもらうべく、ver19のバッチサイズを14にして、epochを5に戻した。<br>
+  - ver24<br>
+    - [ディスカッション](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification/discussion/212532)で、trainingの最後でaugmentationを外すと精度が改善される言われている。[原論文のリンク](https://arxiv.org/pdf/1909.09148.pdf)。ということで、lr=1e-6, min_lr=5, epoch=2にして回してみることにした。<br>
       
