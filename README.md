@@ -379,7 +379,7 @@ train - トレーニングイメージ
       | 0.9648 | 0.963 | 0.1063 | 0.1223 | <br>
     - まだvalid_lossが下がり続けているため、もっといける気がする。<br>
   - ver24<br>
-    - [ディスカッション](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification/discussion/212532)で、trainingの最後でaugmentationを外すと精度が改善される言われている。[原論文のリンク](https://arxiv.org/pdf/1909.09148.pdf)。ということで、lr=1e-6, min_lr=5, epoch=2にして回してみることにした。<br>
+    - [ディスカッション](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification/discussion/212532)で、trainingの最後でaugmentationを外すと精度が改善される言われている。[原論文のリンク](https://arxiv.org/pdf/1909.09148.pdf)。ということで、lr=1e-6, min_lr=5e-7, epoch=2にして回してみることにした。<br>
     - 元のモデルは、ver21のfine tuneモデル。<br>
     - | CV | LB | train_loss | valid_loss |
       | :---: | :---: | :---: | :---: | 
@@ -391,8 +391,6 @@ train - トレーニングイメージ
       | :---: | :---: | :---: | :---: | 
       | 0.9632 | 0.962 | 0.1229 | 0.1221 | <br>
     - 一応LBは改善している。工夫の一つとして使えそう。<br>
-  - ver26<br>
-    - ver23を、バッチサイズを
 
 ### 20210308<br>
 - nb006<br>
@@ -401,5 +399,14 @@ train - トレーニングイメージ
 - nb007<br>
   - ver26<br>
     - ver23のDANet moduleモデルを、バッチサイズ14で回す。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: | 
+      | 0.9656 | 0.964 | 0.1055 | 0.1214 | <br>
+    - 若干だけどCVがよくなって、LBも0.001上がっている。まだまだ上がりそうなので、ver25のfine tuningを試してみたい。<br>
   - ver27<br>
     - ver24からroc_star_lossを追加する。roc_starは、Deep AUCと同じような、AUCを最大化することを狙った損失関数。[GitHubのリンクはここ](https://github.com/iridiumblue/roc-star)で、参考にしたNotebookは[ここ](https://www.kaggle.com/iridiumblue/roc-star-an-auc-loss-function-to-challenge-bxe/log)<br>
+    - GPUで動作確認をしたので、一旦quick saveした。<br>
+  - ver??<br>
+    - nb006_ver21のモデルを、FocalLossを用いてfine tuningする。設定はver15と同じ。<br>
+  - ver28<br>
+    - ver24のforkで、min_lr=9e-6にした。epochも3にした。モデルはnb006_ver26のもの。<br>
