@@ -394,7 +394,7 @@ train - トレーニングイメージ
 
 ### 20210308<br>
 - nb006<br>
-  - ver21<br>
+  - ver22<br>
     - nb007_ver21のfine tuningモデルを、さらにfine tuningする。設定はver13と全く同じ。nb007でFocalLossも使う予定。<br>
 - nb007<br>
   - ver26<br>
@@ -406,7 +406,13 @@ train - トレーニングイメージ
   - ver27<br>
     - ver24からroc_star_lossを追加する。roc_starは、Deep AUCと同じような、AUCを最大化することを狙った損失関数。[GitHubのリンクはここ](https://github.com/iridiumblue/roc-star)で、参考にしたNotebookは[ここ](https://www.kaggle.com/iridiumblue/roc-star-an-auc-loss-function-to-challenge-bxe/log)<br>
     - GPUで動作確認をしたので、一旦quick saveした。<br>
-  - ver??<br>
-    - nb006_ver21のモデルを、FocalLossを用いてfine tuningする。設定はver15と同じ。<br>
   - ver28<br>
     - ver24のforkで、min_lr=9e-6にした。epochも3にした。モデルはnb006_ver26のもの。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: | 
+      | 0.9664 | 0.965 | 0.0984 | 0.1190 | <br>
+    - CV, LBともに若干改善した。しっかり効果が出ている。<br>
+  - ver29<br>
+    - ver27を回した。モデルはver28と同じ。<br>
+  - ver30<br>
+    - nb006_ver21のモデルを、FocalLossを用いてfine tuningする。設定はver15と同じ。<br>
