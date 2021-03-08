@@ -401,3 +401,5 @@ train - トレーニングイメージ
 - nb007<br>
   - ver26<br>
     - ver23のDANet moduleモデルを、バッチサイズ14で回す。<br>
+  - ver27<br>
+    - ver24からroc_star_lossを追加する。roc_starは、Deep AUCと同じような、AUCを最大化することを狙った損失関数。[GitHubのリンクはここ](https://github.com/iridiumblue/roc-star)で、参考にしたNotebookは[ここ](https://www.kaggle.com/iridiumblue/roc-star-an-auc-loss-function-to-challenge-bxe/log)<br>
