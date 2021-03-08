@@ -370,8 +370,34 @@ train - トレーニングイメージ
     - | CV | train_loss | valid_loss |
       | :---: | :---: | :---: |
       | 0.9316 | 1.6560 | 0.1679 | <br>
+      
+- nb007<br>
   - ver23(ver22はquick save)<br>
-    - これもquick save。ひらさんにDANetのリベンジをしてもらうべく、ver19のバッチサイズを14にして、epochを5に戻した。<br>
+    - これもquick save。ひらさんにDANetのリベンジをしてもらうべく、ver19のバッチサイズを12にして、epochを5に戻した(自分のNotebookでは14になっているが、ひらさんに回してもらうときに12になった)。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: | 
+      | 0.9648 | 0.963 | 0.1063 | 0.1223 | <br>
+    - まだvalid_lossが下がり続けているため、もっといける気がする。<br>
   - ver24<br>
     - [ディスカッション](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification/discussion/212532)で、trainingの最後でaugmentationを外すと精度が改善される言われている。[原論文のリンク](https://arxiv.org/pdf/1909.09148.pdf)。ということで、lr=1e-6, min_lr=5, epoch=2にして回してみることにした。<br>
-      
+    - 元のモデルは、ver21のfine tuneモデル。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: | 
+      | 0.9687 | 0.963 | 0.0961 | 0.1142 | <br>
+    - CVは若干上がっている。LBも多分、表示桁以下は上がっていると思う。<br>
+  - ver25<br>
+    - nb006_ver21のFocalLossモデル。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: | 
+      | 0.9632 | 0.962 | 0.1229 | 0.1221 | <br>
+    - 一応LBは改善している。工夫の一つとして使えそう。<br>
+  - ver26<br>
+    - ver23を、バッチサイズを
+
+### 20210308<br>
+- nb006<br>
+  - ver21<br>
+    - nb007_ver21のfine tuningモデルを、さらにfine tuningする。設定はver13と全く同じ。nb007でFocalLossも使う予定。<br>
+- nb007<br>
+  - ver26<br>
+    - ver23のDANet moduleモデルを、バッチサイズ14で回す。<br>
