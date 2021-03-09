@@ -433,3 +433,6 @@ train - トレーニングイメージ
 - nb007<br>
   - ver31<br>
     - ver30から、FocalLossのgammaを0.1に変える。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: | 
+      | 0.9689 | - | 0.983 | 0.1034 | <br>
