@@ -396,6 +396,9 @@ train - トレーニングイメージ
 - nb006<br>
   - ver22<br>
     - nb007_ver21のfine tuningモデルを、さらにfine tuningする。設定はver13と全く同じ。nb007でFocalLossも使う予定。<br>
+    - - | CV | train_loss | valid_loss |
+      | :---: | :---: | :---: |
+      | 0.9535 | 1.472 | 0.1369 | <br>
 - nb007<br>
   - ver26<br>
     - ver23のDANet moduleモデルを、バッチサイズ14で回す。<br>
@@ -416,3 +419,12 @@ train - トレーニングイメージ
     - ver27を回した。モデルはver28と同じ。<br>
   - ver30<br>
     - nb006_ver21のモデルを、FocalLossを用いてfine tuningする。設定はver15と同じ。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: | 
+      | 0.9697 | 0.959 | 0.1051 | 0.1055 | <br>
+    - どうしてLBがこんなに低いのかさっぱりわからない。これならうまくいくと思っていたのに...<br>
+
+### 20210309<br>
+- nb007<br>
+  - ver31<br>
+    - ver30から、FocalLossのgammaを0.1に変える。<br>
