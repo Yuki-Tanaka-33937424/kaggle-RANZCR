@@ -417,6 +417,11 @@ train - トレーニングイメージ
     - CV, LBともに若干改善した。しっかり効果が出ている。<br>
   - ver29<br>
     - ver27を回した。モデルはver28と同じ。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: | 
+      | 0.9664 | 0.963 | 40.5113 | 0.1187 | <br>
+    - roc_star_lossを使っているため、train_lossの値は他とは異なる。<br>
+    - 学習時間もかなり長くなった上にスコアも落ちてしまった。これは却下する。<br>
   - ver30<br>
     - nb006_ver21のモデルを、FocalLossを用いてfine tuningする。設定はver15と同じ。<br>
     - | CV | LB | train_loss | valid_loss |
