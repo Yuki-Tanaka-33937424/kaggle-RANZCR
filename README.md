@@ -456,10 +456,13 @@ train - トレーニングイメージ
     - 悪化してしまった。Focal Lossが全部ダメだったのもこのせいである可能性が高い。<br>
 
 ### 20210310<br> 
+- nb006<br>
+  - ver24<br>
+    - nb007_ver21のモデルにDANet moduleを使ってpretrainする。nb006_ver15を使って、参照先をnb007_ver21のモデルに変える。<br>
 - nb007<br>
   - ver33<br>
     - 前回はcycle の３周目のモデルに対してFocal Lossを適用してスコアが下がったが(ver30)、そもそも、Focal Lossを使わなくてもスコアが下がっていることがわかった(ver32)。なので、cycleの2周目のモデル(nb006_ver17)を使って、nb007_ver30で学習させてみる。<br>
     - | CV | LB | train_loss | valid_loss |
       | :---: | :---: | :---: | :---: | 
       | 0.9672 | 0.959 | 0.1056 | 0.1109 | <br>
-      
+    - FocalLossは何をやっても効かないのて完全にボツにする。<br>
