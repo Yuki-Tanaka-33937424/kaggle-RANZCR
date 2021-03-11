@@ -475,6 +475,10 @@ train - トレーニングイメージ
 - nb006<br>
   - ver25<br>
     - DANet　moduleをつけた状態でもう一度step2とstep3を学習させてみることにした。そのstep2。ver15とハイパラは同じで、モデルの初期値がnb007_ver26になっている。<br>
+    - | CV | train_loss | valid_loss |
+      | :---: | :---: | :---: | 
+      | 0.9590 | 1.6305 | 0.1301 | <br>
+    - めちゃくちゃ強い。これが最強説ある。<br>
 - nb007<br>
   - ver34<br>
     - nb007_ver26を、nb006_ver24のモデルに対して適用する。cycle x2 -> DANet module<br>
