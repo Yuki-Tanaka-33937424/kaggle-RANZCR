@@ -473,7 +473,7 @@ train - トレーニングイメージ
 
 ### 20210311<br>
 - nb007<br>
-  - ver30(本当はver34だがローカルのpyファイルをアップロードする前にcommitしてしまった...)<br>
+  - ver34<br>
     - nb007_ver26を、nb006_ver24のモデルに対して適用する。<br>
 - nb014(SeResNet152D-step1)<br>
   - ver1<br>
