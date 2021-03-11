@@ -482,3 +482,11 @@ train - トレーニングイメージ
 - nb015(EfficientNetB5ns-step1)<br>
   - ver1<br>
     - nb005_ver6のモデルをEfficientNetB5nsに変更した。デバイスをGPUにしたので、バッチサイズが16 -> 8に学習率が5e-4 -> 2.5e-4に、変わっている。<br>
+- nb016(SeResNet152D_step2)<br>
+  - ver1<br>
+    - nb006_ver12のモデルをSeResNet152Dに変えた。<br>
+  - ver2<br>
+    - ver1の親モデルがGPUに乗っていなかったので、乗せた。意味なかった。<br>
+- nb017(EfficientNetB5ns_step2)<br>
+  - ver1<br>
+    - nb006_ver12のモデルをEfficientNetB5nsに変えた。<br>
