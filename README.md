@@ -472,9 +472,16 @@ train - トレーニングイメージ
     - FocalLossは何をやっても効かないのて完全にボツにする。<br>
 
 ### 20210311<br>
+- nb006<br>
+  - ver25<br>
+    - DANet　moduleをつけた状態でもう一度step2とstep3を学習させてみることにした。そのstep2。ver15とハイパラは同じで、モデルの初期値がnb007_ver26になっている。<br>
 - nb007<br>
   - ver34<br>
-    - nb007_ver26を、nb006_ver24のモデルに対して適用する。<br>
+    - nb007_ver26を、nb006_ver24のモデルに対して適用する。cycle x2 -> DANet module<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: | 
+      | 0.9463 | 0.963 | 0.1110 | 0.1240 | <br>
+    - 悪化してしまった。この方向性はよくないので変える。<br>
 - nb014(SeResNet152D-step1)<br>
   - ver1<br>
     - nb005_ver6のモデルをSeResNet152Dに変更した。デバイスをGPUにしたので、バッチサイズが16 -> 8に学習率が5e-4 -> 2.5e-4に、変わっている。<br>
