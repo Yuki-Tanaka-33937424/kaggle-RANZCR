@@ -475,3 +475,10 @@ train - トレーニングイメージ
 - nb007<br>
   - ver30(本当はver34だがローカルのpyファイルをアップロードする前にcommitしてしまった...)<br>
     - nb007_ver26を、nb006_ver24のモデルに対して適用する。<br>
+- nb014(SeResNet152D-step1)<br>
+  - ver1<br>
+    - nb005_ver6のモデルをSeResNet152Dに変更した。デバイスをGPUにしたので、バッチサイズが16 -> 8に学習率が5e-4 -> 2.5e-4に、変わっている。<br>
+    - モデル名を変え忘れた。中身はちゃんと変わってる。<br>
+- nb015(EfficientNetB5ns-step1)<br>
+  - ver1<br>
+    - nb005_ver6のモデルをEfficientNetB5nsに変更した。デバイスをGPUにしたので、バッチサイズが16 -> 8に学習率が5e-4 -> 2.5e-4に、変わっている。<br>
