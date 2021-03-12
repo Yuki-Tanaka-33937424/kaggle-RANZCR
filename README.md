@@ -498,6 +498,8 @@ train - トレーニングイメージ
     - nb006_ver12のモデルをSeResNet152Dに変えた。<br>
   - ver2<br>
     - ver1の親モデルがGPUに乗っていなかったので、乗せた。意味なかった。<br>
+  - ver3<br>
+    - nb006_ver15と同じで、DANet moduleをつけた。ローカルで回すとギリギリOOMになったのでバッチサイズを7に下げた。<br>
 - nb017(EfficientNetB5ns_step2)<br>
   - ver1<br>
     - nb006_ver12のモデルをEfficientNetB5nsに変えた。<br>
