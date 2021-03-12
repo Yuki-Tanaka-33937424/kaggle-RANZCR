@@ -520,8 +520,15 @@ train - トレーニングイメージ
       | Adam(ver3) | 0.9407 | 0.1377 | 
       | RAdam(ver6) | 0.9376 | 0.1426 |
       | AdaBelief(ver7) | 0.9439 | 0.1402 | <br>
+  - ver8<br>
+    - optimizerをAdamに戻して、batch_size=7のままgradient_accumulation=2に、lr=2e-5してみた。<br>
+    - | CV | train_loss | valid_loss | 
+      | :---: | :---: | :---: |
+      | 0.1447 | 3.3681 | 0.1447 | <br>
+    - もはやgradient_accumulationって悪影響しか与えない結果になってしまった。実装は間違っていないように見えるのでおかしい気もするが諦める。<br>
 - nb017(EfficientNetB5ns_step2)<br>
   - ver1<br>
     - nb006_ver12のモデルをEfficientNetB5nsに変えた。<br>
   - ver2<br>
     - nb016_ver3のモデルをEfficientNetに変えた。こっちの方がメモリ消費が若干激しいので、nb016の方でgradient_accumulationの実験をしてからこっちを動かすことにする。<br>
+    - nb016の方で何をやってもうまくいかなかったので、普通にAdamでbatch_size=6, gradient_accumulation=1で回す。<br>
