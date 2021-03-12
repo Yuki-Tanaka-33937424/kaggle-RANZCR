@@ -506,6 +506,20 @@ train - トレーニングイメージ
     - ResNet200Dに比べると若干弱い。ただ、学習率をもうちょい上げればまだCVは伸びそう。<br>
   - ver4<br> 
     - batch_sizeを4にして、gradient_accumulationを2にした。<br>
+    - [このページ](https://kenbell.hatenablog.com/entry/2020/01/26/134350)によると、gradient_accumulationをやっても、Batch_Normalization層はbatch１つ分しか認識しない(確かにそれはそう)ため、完全に再現できるわけではないそうだ。<br>
+    - | CV | train_loss | valid_loss | 
+      | :---: | :---: | :---: | 
+      | 0.8921 | 3.6073 | 0.1562 | <br>
+    - 確実に悪化してる...<br>
+  - ver5<br>
+    - gradient_accumulation=4にしてlr=2e-5にしたが、途中経過があまりにも悪すぎて途中で止めた。<br>
+  - ver6, ver7<br>
+    - batch_size=7に戻して、optimizerをRAdamとAdaBeliefに変えた。Adamの結果と合わせて記載する。<br>
+    - | optimizer(version) | CV | valid_loss | 
+      | :---: | :---: | :---: | 
+      | Adam(ver3) | 0.9407 | 0.1377 | 
+      | RAdam(ver6) | 0.9376 | 0.1426 |
+      | AdaBelief(ver7) | 0.9439 | 0.1402 | <br>
 - nb017(EfficientNetB5ns_step2)<br>
   - ver1<br>
     - nb006_ver12のモデルをEfficientNetB5nsに変えた。<br>
