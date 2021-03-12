@@ -500,6 +500,14 @@ train - トレーニングイメージ
     - ver1の親モデルがGPUに乗っていなかったので、乗せた。意味なかった。<br>
   - ver3<br>
     - nb006_ver15と同じで、DANet moduleをつけた。ローカルで回すとギリギリOOMになったのでバッチサイズを7に下げた。<br>
+    - | CV | train_loss | valid_loss | 
+      | :---: | :---: | :---: | 
+      | 0.9407 | 3.1717 | 0.1377 | <br>
+    - ResNet200Dに比べると若干弱い。ただ、学習率をもうちょい上げればまだCVは伸びそう。<br>
+  - ver4<br> 
+    - batch_sizeを4にして、gradient_accumulationを2にした。<br>
 - nb017(EfficientNetB5ns_step2)<br>
   - ver1<br>
     - nb006_ver12のモデルをEfficientNetB5nsに変えた。<br>
+  - ver2<br>
+    - nb016_ver3のモデルをEfficientNetに変えた。こっちの方がメモリ消費が若干激しいので、nb016の方でgradient_accumulationの実験をしてからこっちを動かすことにする。<br>
