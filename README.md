@@ -421,7 +421,7 @@ train - トレーニングイメージ
     - ver24からroc_star_lossを追加する。roc_starは、Deep AUCと同じような、AUCを最大化することを狙った損失関数。[GitHubのリンクはここ](https://github.com/iridiumblue/roc-star)で、参考にしたNotebookは[ここ](https://www.kaggle.com/iridiumblue/roc-star-an-auc-loss-function-to-challenge-bxe/log)<br>
     - GPUで動作確認をしたので、一旦quick saveした。<br>
   - ver28<br>
-    - ver24のforkで、min_lr=9e-6にした。epochも3にした。モデルはnb006_ver26のもの。<br>
+    - ver24のforkで、min_lr=9e-6にした。epochも3にした。モデルはnb007_ver26のもの。<br>
     - | CV | LB | train_loss | valid_loss |
       | :---: | :---: | :---: | :---: | 
       | 0.9664 | 0.965 | 0.0984 | 0.1190 | <br>
