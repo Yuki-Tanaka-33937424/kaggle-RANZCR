@@ -537,4 +537,11 @@ train - トレーニングイメージ
 - nb007<br>
   - ver35<br>
     - nb006_ver25(DANet module付、2周目)のモデルを学習させた。nb007_ver26からバッチサイズを15に上げた。<br>
+  - ver36<br>
+    - lrを2e-5から1e-5に下げた。パラメータ探索を軽くやりたいため、1epochのみで止める。<br>
+- nb016<br>
+  - ver9<br>
+    - ver4からbatch_size=8にした。<br>
+  - ver10<br>
+    - AdaBeliefに変えた。<br>
 
