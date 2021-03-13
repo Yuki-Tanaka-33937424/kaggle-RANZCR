@@ -537,11 +537,30 @@ train - トレーニングイメージ
 - nb007<br>
   - ver35<br>
     - nb006_ver25(DANet module付、2周目)のモデルを学習させた。nb007_ver26からバッチサイズを15に上げた。<br>
-  - ver36<br>
-    - lrを2e-5から1e-5に下げた。パラメータ探索を軽くやりたいため、1epochのみで止める。<br>
+  - ver36, ver37<br>
+    - lrを下げた。パラメータ探索を軽くやりたいため、1epochのみで止めた。<br>
+    - | lr(version) | CV | valid_loss |
+      | :---: | :---: | :---: |
+      | 2e-5(ver35) | 0.9640 | 0.1271 |
+      | 1e-5(ver36) | 0.9642 | 0.1254 | 
+      | 5e-6(ver37) | 0.9638 | 0.1247 | <br>
+    - CVはほぼ全部同じであるため、lossの下がり方と数値を見て5e-6を採用する。<br>
+  - ver38<br>
+    - ver35のlrを5e-6にした。<br>
 - nb016<br>
   - ver9<br>
     - ver4からbatch_size=8にした。<br>
   - ver10<br>
     - AdaBeliefに変えた。<br>
-
+    - 二つの実験結果をまとめる。<br>
+    - | optimizer(ver) | CV | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: |
+      | Adam(ver9) | 0.9470 | 3.2392 | 0.1354 | 
+      | AdaBelief(ver10) | 0.9420 | 3.3278 | 0.1387 | <br>
+    - Cassavaでも今回でもAdamの方がよかった。１からモデルを作る場合とfine tuningをする場合ではまた違う結果になるのだろうか。理由がいまいちよくわからない。<br>
+- nb017<br>
+  - ver3<br>
+    - nb016_ver9をモデルをEfficientNetB5nsに変えた。<br>
+- nb018<br>
+  - ver1<br>
+    - nb007_ver26をモデルをSeResNet152Dに変えてnb016_ver9のモデルを学習させた。<br>
