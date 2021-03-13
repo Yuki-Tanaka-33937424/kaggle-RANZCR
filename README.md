@@ -561,6 +561,19 @@ train - トレーニングイメージ
 - nb017<br>
   - ver3<br>
     - nb016_ver9をモデルをEfficientNetB5nsに変えた。<br>
-- nb018<br>
+    - | CV | train_loss | valid_loss | 
+      | :---: | :---: | :---: | 
+      | 0.9439 | 0.7462 | 0.1386 | <br>
+    - なんかまだ下がりそうだな。<br>
+  - ver4<br>
+    - TPUが空いていなくてGPUに余裕があるので、wo aug fine tuningを試してみる。lr=1e-6, min_lr=5e-7, epochs=3, T_max=3にした。<br>
+- nb018(SeResNet152D)_step3<br>
   - ver1<br>
     - nb007_ver26をモデルをSeResNet152Dに変えてnb016_ver9のモデルを学習させた。<br>
+- nb019(EfficientNetB5ns_step3)<br>
+- nb020(DenseNet121_tep1)<br>
+  - ver1<br>
+    - fold1で、DenseNet121の親モデルを作った。<br>
+    - ETT - Abnormalが(他のモデルもそうだけど、一番)極端に悪い。流石にもうちょい上げたい。<br>
+  - ver2<br>
+    - 勘で、epochs=5, T_max=5, lr=1e-4にした。<br>
