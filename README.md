@@ -547,6 +547,8 @@ train - トレーニングイメージ
     - CVはほぼ全部同じであるため、lossの下がり方と数値を見て5e-6を採用する。<br>
   - ver38<br>
     - ver35のlrを5e-6にした。<br>
+  - ver39<br>
+    - ver38のモデルをwoaug_fine_tuningする。ハイパラはnb017_ver4と同じ。<br>
 - nb016<br>
   - ver9<br>
     - ver4からbatch_size=8にした。<br>
@@ -558,6 +560,8 @@ train - トレーニングイメージ
       | Adam(ver9) | 0.9470 | 3.2392 | 0.1354 | 
       | AdaBelief(ver10) | 0.9420 | 3.3278 | 0.1387 | <br>
     - Cassavaでも今回でもAdamの方がよかった。１からモデルを作る場合とfine tuningをする場合ではまた違う結果になるのだろうか。理由がいまいちよくわからない。<br>
+  - ver11<br<
+    - woaug_fine_tuningをやってみる。nb017_ver4とハイパラは同じ。<br>
 - nb017<br>
   - ver3<br>
     - nb016_ver9をモデルをEfficientNetB5nsに変えた。<br>
@@ -577,3 +581,10 @@ train - トレーニングイメージ
     - ETT - Abnormalが(他のモデルもそうだけど、一番)極端に悪い。流石にもうちょい上げたい。<br>
   - ver2<br>
     - 勘で、epochs=5, T_max=5, lr=1e-4にした。<br>
+    - best_scoreのモデルがいい感じになったので、それを採用する。<br>
+- nb021(DenseNet121_step2)<br>
+  - ver1<br>
+    - nb017_ver3のモデルをDenseNet121に変えた。ハイパラなどは全て同じ<br>
+    - ETT - AbnormalクラスのAUCが明らかにおかしいので止めた。<br> 
+  - ver2<br> 
+    - 親モデルをbest_lossに変えた。<br>
