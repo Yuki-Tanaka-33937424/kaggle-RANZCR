@@ -532,3 +532,9 @@ train - トレーニングイメージ
   - ver2<br>
     - nb016_ver3のモデルをEfficientNetに変えた。こっちの方がメモリ消費が若干激しいので、nb016の方でgradient_accumulationの実験をしてからこっちを動かすことにする。<br>
     - nb016の方で何をやってもうまくいかなかったので、普通にAdamでbatch_size=6, gradient_accumulation=1で回す。<br>
+
+### 20210313<br>
+- nb007<br>
+  - ver35<br>
+    - nb006_ver25(DANet module付、2周目)のモデルを学習させた。nb007_ver26からバッチサイズを15に上げた。<br>
+
