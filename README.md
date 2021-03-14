@@ -593,9 +593,24 @@ train - トレーニングイメージ
       | 0.9609 | - | 0.1250 | 0.1282 | <br>
   - ver2<br> 
     - nb016_ver11のモデルを学習させた。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: |
+      | 0.9607 | - | 0.1248 | 0.1285 | <br>
+    - ほぼ変わらなかったので、ver1を使う。<br>
+  - ver3<br>
+    - ver1のモデルでwoaug_fine_tuningを行った。
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: |
+      | 0.9628 | - | 0.1054 | 0.1266 | <br>
 - nb019(EfficientNetB5ns_step3)<br>
   - ver1<br>
     - TPUでどうしても動かないなあと思っていたが、よく考えたらtimmのEfficientNetはTPUだとうまく動かないとCassavaのときから言われていた。そこで、GPUで動かす。batch_sizeを16から8に落としてlrを2e-5から1e-5に下げた。<br>
+    - | CV | train_loss | valid_loss | 
+      | :---: | :---: | :---: | 
+      | 0.9615 | 0.1343 | 0.1252 | <br>
+    - valid_lossの極小がepoch1にきてしまったため、明らかにlrが高すぎた。woaug_fine_tuningで調整すればいいか。<br>
+  - ver2<br>
+    - ver1のモデルをwoaug_fine_tuningした。epochは3にした。<br>
 - nb020(DenseNet121_step1)<br>
   - ver1<br>
     - fold1で、DenseNet121の親モデルを作った。<br>
@@ -617,3 +632,10 @@ train - トレーニングイメージ
     - スコアは若干上がったけどlossが悪化したので止める...<br> 
   - ver28(ver27は失敗)<br>
     - 0.965のPublicモデルにDANet moduleをつけた。foldは0にしてある。<br>
+    - | CV | train_loss | valid_loss | 
+      | :---: | :---: | :---: | 
+      | 0.9531 | 1.6474 | 0.1202 | <br>
+    - 強い。<br> 
+- nb007<br>
+  - ver40<br>
+    - nb006_ver28のモデルのstep3。ver26をforkしてlr=1e-5に、batch_size=15に変更した。<br> 
