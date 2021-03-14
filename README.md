@@ -601,7 +601,8 @@ train - トレーニングイメージ
     - ver1のモデルでwoaug_fine_tuningを行った。
     - | CV | LB | train_loss | valid_loss |
       | :---: | :---: | :---: | :---: |
-      | 0.9628 | - | 0.1054 | 0.1266 | <br>
+      | 0.9628 | 0.946 | 0.1054 | 0.1266 | <br>
+    - なんでだよーーーーーーーーーーーーーーー<br>
 - nb019(EfficientNetB5ns_step3)<br>
   - ver1<br>
     - TPUでどうしても動かないなあと思っていたが、よく考えたらtimmのEfficientNetはTPUだとうまく動かないとCassavaのときから言われていた。そこで、GPUで動かす。batch_sizeを16から8に落としてlrを2e-5から1e-5に下げた。<br>
@@ -611,6 +612,10 @@ train - トレーニングイメージ
     - valid_lossの極小がepoch1にきてしまったため、明らかにlrが高すぎた。woaug_fine_tuningで調整すればいいか。<br>
   - ver2<br>
     - ver1のモデルをwoaug_fine_tuningした。epochは3にした。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: |
+      | 0.9629 | 0.939 | 0.1086 | 0.1232 | <br>
+    - LBおかしくね？なんで？？？
 - nb020(DenseNet121_step1)<br>
   - ver1<br>
     - fold1で、DenseNet121の親モデルを作った。<br>
