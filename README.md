@@ -547,8 +547,16 @@ train - トレーニングイメージ
     - CVはほぼ全部同じであるため、lossの下がり方と数値を見て5e-6を採用する。<br>
   - ver38<br>
     - ver35のlrを5e-6にした。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: |
+      | 0.9651 | - | 0.1052 | 0.1224 | <br>
+    - 結局nb007_ver26に勝てない...<br>
   - ver39<br>
     - ver38のモデルをwoaug_fine_tuningする。ハイパラはnb017_ver4と同じ。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: |
+      | 0.9658 | 0.965 | 0.0956 | 0.1210 | <br>
+    - LBは変わらなかったし、step2とstep3を一回ずつだけのモデルの方がvalid_lossは低い。失敗した...<br>
 - nb016<br>
   - ver9<br>
     - ver4からbatch_size=8にした。<br>
@@ -560,8 +568,11 @@ train - トレーニングイメージ
       | Adam(ver9) | 0.9470 | 3.2392 | 0.1354 | 
       | AdaBelief(ver10) | 0.9420 | 3.3278 | 0.1387 | <br>
     - Cassavaでも今回でもAdamの方がよかった。１からモデルを作る場合とfine tuningをする場合ではまた違う結果になるのだろうか。理由がいまいちよくわからない。<br>
-  - ver11<br<
+  - ver11<br>
     - woaug_fine_tuningをやってみる。nb017_ver4とハイパラは同じ。<br>
+    - | CV | train_loss | valid_loss | 
+      | :---: | :---: | :---: | 
+      | 0.9485 | 3.0327 | 0.1317 | <br>
 - nb017<br>
   - ver3<br>
     - nb016_ver9をモデルをEfficientNetB5nsに変えた。<br>
@@ -571,11 +582,21 @@ train - トレーニングイメージ
     - なんかまだ下がりそうだな。<br>
   - ver4<br>
     - TPUが空いていなくてGPUに余裕があるので、wo aug fine tuningを試してみる。lr=1e-6, min_lr=5e-7, epochs=3, T_max=3にした。<br>
+    - | CV | train_loss | valid_loss | 
+      | :---: | :---: | :---: | 
+      | 0.9490 | 0.7000 | 0.1347 | <br>
 - nb018(SeResNet152D)_step3<br>
   - ver1<br>
     - nb007_ver26をモデルをSeResNet152Dに変えてnb016_ver9のモデルを学習させた。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: |
+      | 0.9609 | - | 0.1250 | 0.1282 | <br>
+  - ver2<br> 
+    - nb016_ver11のモデルを学習させた。<br>
 - nb019(EfficientNetB5ns_step3)<br>
-- nb020(DenseNet121_tep1)<br>
+  - ver1<br>
+    - TPUでどうしても動かないなあと思っていたが、よく考えたらtimmのEfficientNetはTPUだとうまく動かないとCassavaのときから言われていた。そこで、GPUで動かす。batch_sizeを16から8に落としてlrを2e-5から1e-5に下げた。<br>
+- nb020(DenseNet121_step1)<br>
   - ver1<br>
     - fold1で、DenseNet121の親モデルを作った。<br>
     - ETT - Abnormalが(他のモデルもそうだけど、一番)極端に悪い。流石にもうちょい上げたい。<br>
@@ -588,3 +609,11 @@ train - トレーニングイメージ
     - ETT - AbnormalクラスのAUCが明らかにおかしいので止めた。<br> 
   - ver2<br> 
     - 親モデルをbest_lossに変えた。<br>
+    - CVが0.85ぐらいまでしか上がらなくて明らかにダメそうなのでここで諦める。<br>
+### 20210314<br>
+- nb006<br>
+  - ver26<br>
+    - nb006_ver15のモデルをwoaug_finetuningした。<br>
+    - スコアは若干上がったけどlossが悪化したので止める...<br> 
+  - ver28(ver27は失敗)<br>
+    - 0.965のPublicモデルにDANet moduleをつけた。foldは0にしてある。<br>
