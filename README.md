@@ -631,6 +631,7 @@ train - トレーニングイメージ
     - 親モデルをbest_lossに変えた。<br>
     - CVが0.85ぐらいまでしか上がらなくて明らかにダメそうなのでここで諦める。<br>
 ### 20210314<br>
+- 半分以上昨日のところに書いてしまった。<br>
 - nb006<br>
   - ver26<br>
     - nb006_ver15のモデルをwoaug_finetuningした。<br>
@@ -644,3 +645,33 @@ train - トレーニングイメージ
 - nb007<br>
   - ver40<br>
     - nb006_ver28のモデルのstep3。ver26をforkしてlr=1e-5に、batch_size=15に変更した。<br> 
+    - | CV | train_loss | valid_loss | 
+      | :---: | :---: | :---: | 
+      | 0.9668 | 0.0907 | 0.1078 | <br>
+    - 過去最高級に強い。<br>
+### 20210316<br>
+- nb005<br>
+  - ver9<br>
+    - [ひらさんが見つけてきてくれたfoldの切り方](https://www.kaggle.com/underwearfitting/how-to-properly-split-folds)にしたがってfoldを切った。fold0を使う。親モデルを作った。<br>
+    - 最初からDANet moduleをつけてみた。<br>
+    - lossが一番低いepochのCVが、ETT - abnormalクラスだけ異常に低いが、そもそもかなり陽性のデータが少ないので気にしない。<br>
+- nb006<br>
+  - ver29<br>
+    - nb005_ver9の親モデルを使って子モデルを作った。<br>
+    - | CV | train_loss | valid_loss | 
+      | :---: | :---: | :---: | 
+      | 0.9459 | 0.3231 | 0.1213 | <br> 
+    - train_lossの下がり方が全然違った。重みを近づけるなら、そもそもモデルの形を全て揃えるべきだったと考えられるし、foldも最初からこの切り方をすべきだった。<br>
+    - このepochはたまたまCVが低いが、直前では0.956まで上がっているので問題はないと思う。それよりlossの下がり方がすごい。<br>
+- nb007<br>
+  - ver41<br>
+    - ver40のモデルのwoaug_fine_tuning。ひらさんに回してもらう。<br>
+  - ver42<br>
+    - nb006_ver29のモデルの学習をローカルで回す。バッチサイズをさ7に下げて学習率も5e-6に落とす。<br>
+- nb016<br>
+  - ver12<br>
+    - 公開Notebookの重みにDANet moduleをつけて学習させた。<br>
+    - | CV | train_loss | valid_loss | 
+      | :---: | :---: | :---: | 
+      | 0.9460 | 3.0299 | 0.1252 | <br>
+    - 当然強いけど、nb007_ver42の方が優先かなあ<br>
