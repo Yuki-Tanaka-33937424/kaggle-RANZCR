@@ -673,10 +673,13 @@ train - トレーニングイメージ
     - 後から気づいたが、augmentationを外し忘れていた。まあどのみち結果はあんまり変わらなかった気がする。<br>
   - ver42<br>
     - nb006_ver29のモデルの学習を回す。ひらさんに頼んだ。<br>
-    - | CV | train_loss | valid_loss | 
-      | :---: | :---: | :---: | 
-      | 0.9641 | 0.1109 | 0.1135 | <br>
+    - | CV | LB | train_loss | valid_loss | 
+      | :---: | :---: | :---: | :---: | 
+      | 0.9641 | 0.964 | 0.1109 | 0.1135 | <br>
     - これは期待できそう。woaug_fine_tuningもやる。<br>
+  - ver43<br>
+    - ver42のモデルのwoaug_fine_tuning。<br>
+    - ひらさんが回す直前Datasetを差し替えてしまい、失敗した。<br>
 - nb016<br>
   - ver12<br>
     - 公開Notebookの重みにDANet moduleをつけて学習させた。<br>
@@ -684,6 +687,18 @@ train - トレーニングイメージ
       | :---: | :---: | :---: | 
       | 0.9460 | 3.0299 | 0.1252 | <br>
     - 当然強いけど、nb007_ver42の方が優先かなあ<br>
+- nb018<br>
+  - ver4, ver5<br>
+    - nb016_ver12のモデルのstep3をひらさんに回してもらおうとしたが、エラーがでて断念した。<br>
+  - ver7(ver6は失敗)<br>
+    - SeResNetのPublic Weightをfine tuningしたが、foldの切り方をPatient leakが起こらないものにした結果、逆にリークが大きくなったらしくCVが異常に高くなったしまった。<br>
+  - ver8<br>
+    - foldの切り方を戻してひらさんに回してもらった。<br>
+    - | CV | LB | train_loss | valid_loss |
+      | :---: | :---: | :---: | :---: |
+      | 0.9683 | 0.962 | 0.1133 | 0.1087 | <br> 
+    - 結局リークしてるけどもう時間がない。これ本当は絶対に良くないやつだよな...反省...<br>
+    - 表示桁以下はスコアが改善しているものと信じる(後から確認したら0.0004ぐらい上がってた)。<br>
 
 ### 20210316<br>
 - もうここに記録するのを怠り始めていて、何が何だかだんだんわからなくなってきている。<br>
@@ -691,3 +706,11 @@ train - トレーニングイメージ
   - ver44<br>
     - ver43のwoaug_fine_tuning。<br>
 - nb009<br> 
+  - ver15<br>
+    - 公開Notebookのモデルをほぼ全て差し替えた。<br>
+      - ResNet1はTTAにvertical flipを追加。<br>
+      - ResNet2はnb007_ver12に差し替え(LB0.966)
+      - ResNet3としてDual Attention Moduleがついた自作ResNetを追加(LB0.965)。<br>
+      - SeResNet152Dはfine tuningしたnb007_ver8に差し替えた。<br>
+      - PublicのEfficientNet、Multi Headを拝借した。本当は全部自力で行きたかった。力不足...<br>
+    - 何はともあれLBが0.968で銅圏に入れた。<br>
