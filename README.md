@@ -2,6 +2,13 @@
 <img width="947" alt="スクリーンショット 2021-02-23 18 48 36" src="https://user-images.githubusercontent.com/70050531/108826575-cbbde300-7607-11eb-9edd-35ac39b4e8cd.png">
 Kaggleの RANZCR CLiP - Catheter and Line Position Challenge コンペのリポジトリです。<br>
 
+## 最終結果<br>
+<img width="956" alt="スクリーンショット 2021-03-21 10 54 02" src="https://user-images.githubusercontent.com/70050531/111891151-f9921e00-8a33-11eb-8652-8c71b456b375.png">
+- Public: 0.96864<br>
+- Private: 0.97142<br>
+- rank: 91/1547 (Top6%)<br> 
+- 初メダルゲット！！！！！<br>
+
 ## 方針
 - Kaggle上で完結させる。<br>
 - Version名は常にVersion〇〇に統一して、変更などはKaggle日記(このリポジトリのREADMD.md)に書き込む。<br> 
@@ -54,6 +61,7 @@ train - トレーニングイメージ
 - PatientID - データセット内の各患者の一意のID
 
 ## Paper<br>
+- 参考にした論文の一覧。決して全てを理解してるわけではない。<br>
 
 ## Log<br>
 ### 20210223<br>
