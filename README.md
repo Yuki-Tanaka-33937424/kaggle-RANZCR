@@ -62,6 +62,11 @@ train - トレーニングイメージ
 
 ## Paper<br>
 - 参考にした論文の一覧。決して全てを理解してるわけではない。<br>
+| No | Name | Detail | Date | link |
+| ----- | ----- | ----- | ----- | ----- |
+| 01 | Focal Loss for Dense Object Detection | Cross Entropy Loss において、比較的うまく分類できているものの損失を小さく抑えることにより、不均衡データでうまく学習ができる。(もともとはRCNを対象に開発された。) | 7 Feb 2018 | [link](https://arxiv.org/pdf/1708.02002.pdf) | 
+| 02 | Dual Attention Network for Scene Segmentation | 画像の各位置、チャンネル方向の２つに対してSelf Attentionを適用する手法。(もともとはSegmentationのための手法)。 | 21 Apr 2019 | [link](https://arxiv.org/pdf/1809.02983.pdf) | 
+
 
 ## Log<br>
 ### 20210223<br>
