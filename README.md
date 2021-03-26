@@ -67,6 +67,12 @@ train - トレーニングイメージ
 | ----- | ----- | ----- | ----- | ----- |
 | 01 | Focal Loss for Dense Object Detection | Cross Entropy Loss において、比較的うまく分類できているものの損失を小さく抑えることにより、不均衡データでうまく学習ができる。(もともとはRCNを対象に開発された。) | 7 Feb 2018 | [link](https://arxiv.org/pdf/1708.02002.pdf) | 
 | 02 | Dual Attention Network for Scene Segmentation | 画像の各位置、チャンネル方向の２つに対してSelf Attentionを適用する手法。(もともとはSegmentationのための手法。) | 21 Apr 2019 | [link](https://arxiv.org/pdf/1809.02983.pdf) | 
+| 03 | Robust Deep AUC Maximization: A New Surrogate Loss and Empirical Studies on Medical Image Classification | 従来のAUC最適化用の損失関数(AUC square loss)の代わりにAUC margin lossを用いることにより、大規模データでも安定してAUC最適化を行えるようにした手法。 | 6 Dec 2020 | [link](https://arxiv.org/pdf/2012.03173.pdf) | 
+| 04 | Data Augmentation Revisited: Rethinking the Distribution Gap between Clean and Augmented Data | augmentationを使ってモデルを学習させた後、augmentationを外してfine tuning することにより精度を上げる手法。 | 21 Nov 2019 | [link](https://arxiv.org/pdf/1909.09148.pdf) | <br>
+
+- その他に参考にしたサイトなど。<br>
+  - 評価指標がAUCであるとき、アンサンブルの際に各モデルの予測をn(>1)乗してWeight Averageを取ることで精度が上がるという話([link](https://medium.com/data-design/reaching-the-depths-of-power-geometric-ensembling-when-targeting-the-auc-metric-2f356ea3250e))。ただ、しlateサブしたらスコアが悪化した。<br>
+  - roc starという、Deep AUC とはまた違うAUC用の損失関数([githubのlink](https://github.com/iridiumblue/roc-star))。こちらも実際に試したら精度が悪化した。<br>
 
 
 ## Log<br>
