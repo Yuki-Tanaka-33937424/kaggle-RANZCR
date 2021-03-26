@@ -1,0 +1,33 @@
+========== fold: 1 training ==========
+========== fold: 1 training ==========
+========== fold: 1 training ==========
+Epoch 1 - avg_train_loss: 2.5683  avg_val_loss: 0.1890  time: 1593s
+Epoch 1 - Score: 0.8983  Scores: [0.8749 0.8903 0.9907 0.8532 0.7911 0.9692 0.9804 0.8583 0.7901 0.8956
+ 0.9879]
+Epoch 1 - Save Best Score: 0.8983 Model
+Epoch 1 - Save Best Loss: 0.1890 Model
+Epoch 2 - avg_train_loss: 1.9422  avg_val_loss: 0.1694  time: 1603s
+Epoch 2 - Score: 0.9065  Scores: [0.8113 0.9173 0.9884 0.8771 0.8424 0.9702 0.9819 0.873  0.8265 0.8969
+ 0.9868]
+Epoch 2 - Save Best Score: 0.9065 Model
+Epoch 2 - Save Best Loss: 0.1694 Model
+Epoch 3 - avg_train_loss: 1.8157  avg_val_loss: 0.1577  time: 1607s
+Epoch 3 - Score: 0.9202  Scores: [0.8741 0.9274 0.9894 0.8911 0.8481 0.9749 0.9838 0.8977 0.8428 0.898
+ 0.9953]
+Epoch 3 - Save Best Score: 0.9202 Model
+Epoch 3 - Save Best Loss: 0.1577 Model
+Epoch 4 - avg_train_loss: 1.7469  avg_val_loss: 0.1563  time: 1622s
+Epoch 4 - Score: 0.9294  Scores: [0.9345 0.9324 0.9899 0.9101 0.8521 0.9755 0.9837 0.9059 0.8462 0.8986
+ 0.9942]
+Epoch 4 - Save Best Score: 0.9294 Model
+Epoch 4 - Save Best Loss: 0.1563 Model
+Epoch 5 - avg_train_loss: 1.7101  avg_val_loss: 0.1547  time: 1626s
+Epoch 5 - Score: 0.9272  Scores: [0.9136 0.938  0.9901 0.9105 0.851  0.9756 0.9838 0.9037 0.8459 0.8989
+ 0.9885]
+Epoch 5 - Save Best Loss: 0.1547 Model
+========== fold: 1 result ==========
+Score: 0.9294  Scores: [0.9345 0.9324 0.9899 0.9101 0.8521 0.9755 0.9837 0.9059 0.8462 0.8986
+ 0.9942]
+========== CV ==========
+Score: 0.9294  Scores: [0.9345 0.9324 0.9899 0.9101 0.8521 0.9755 0.9837 0.9059 0.8462 0.8986
+ 0.9942]
