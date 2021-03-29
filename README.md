@@ -13,7 +13,7 @@ nbというディレクトリに、今回使用したNotebookをおいてあり�
 
 ## 方針
 - 基本的にはKaggle上で実験を行い、quotaが切れたらローカルのGPUで実験を行う。
-- Version名は常にVersion〇〇に統一して、変更などはKaggle日記(このリポジトリのREADMD.md)に書き込む。<br> 
+- Version名は常にVersion〇〇に統一して、変更などはKaggle日記(このリポジトリのREADME.md)に書き込む。<br> 
 
 ## Paper<br>
 - 参考にした論文の一覧。決して全てを理解してるわけではない。<br>
